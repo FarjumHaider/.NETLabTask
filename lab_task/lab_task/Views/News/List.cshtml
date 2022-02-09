@@ -1,0 +1,36 @@
+﻿@model List<lab_task.Models.Database.News>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<form action="/News/List" method="post">
+    <input type="text" name="CategorySearch" placeholder="Search by Category..">
+    <input type="text" name="DateSearch" placeholder="Search by Date..">
+    <input type="submit" value="Search" class="btn btn-primary" />
+
+</form>
+<h4>@ViewBag.error</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>PublishDate</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+<tr>
+    <th>@b.Title</th>
+    <th>@b.Description</th>
+    <th>@b.Category</th>
+    <th>@b.PublishDate</th>
+    <th>
+        <a class="btn btn-primary" href="/News/Edit/@b.Id">Edit</a>
+        <a class="btn btn-success" href="/News/Delete/@b.Id">Delete</a>
+    </th>
+
+</tr>
+    }
+</table>

@@ -1,0 +1,21 @@
+﻿@model lab_task.Models.Database.News
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form action="/News/Edit" method="POST">
+
+    <input type="hidden" placeholder="Title" name="Id" value="@Model.Id" class="form-control" />
+
+    <input type="text" placeholder="Title" name="Title" value="@Model.Title" class="form-control" />
+
+    <input type="text" placeholder="Description" name="Description" value="@Model.Description" class="form-control" />
+
+    <input type="text" placeholder="Category" name="Category" value="@Model.Category" class="form-control" />
+
+    <input type="date" placeholder="PublishDate" name="PublishDate" value="@Model.PublishDate" class="form-control" />
+
+    <input type="submit" value="Edit" class="btn btn-primary" />
+
+</form>
