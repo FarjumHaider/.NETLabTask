@@ -1,0 +1,44 @@
+﻿@model List<task2.Models.Database.Product>
+@using task2.Models.Database;
+@using System.Web.Script.Serialization;
+@{
+    ViewBag.Title = "Cart";
+}
+
+
+
+<h2>Cart</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    @{
+        int total_price = 0;
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Name</th>
+                <th>@item.Price</th>
+                <th>@item.Qty</th>
+            </tr>
+            total_price = total_price + @item.Price;
+        }
+        <tr>
+            <th></th>
+            <th>Total price : @total_price</th>
+            <th></th>
+        </tr>
+
+        <a href="/Product/Order">Checkout</a>
+    }
+</table>
+<a href="/Product/Order">Checkout</a>
+    @* (List<Product>)Session["key"]*@
+
+
+
